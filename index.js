@@ -2,7 +2,8 @@ const DOG_URL = "https://dog.ceo/api/breeds/image/random"
 
 const doggos = document.querySelector(".doggos");
 
-function addNewDoggo() {
+function addNewDoggo(e) {
+    e.preventDefault();
     const promise = fetch(DOG_URL);
     promise
     .then(function(response) {
