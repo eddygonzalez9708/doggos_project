@@ -32,7 +32,31 @@ function fetchBreeds() {
     })
     .then(function(processedResponse) {
         const select = document.querySelector(".breeds-list");
-        console.log('breeds list', processedResponse);
+        const breedsList = [];
+
+        for (breed in processedResponse.message) {
+            if (processedResponse.message[breed].length > 0) {
+                for (index in processedResponse.message[breed]) {
+                    const option = document.createElement("option");
+                    const breedType = processedResponse.message[breed][index];
+                    option.val = `${breed}-${breedType}`;
+                    option.innerText = `${breedType[0].toUpperCase()}${breedType.slice(1)} ${breed[0].toUpperCase()}${breed.slice(1)}`;
+                    breedsList.push(option);
+                }
+            } else {
+                const option = document.createElement("option");
+                option.val = breed;
+                option.innerText = `${breed[0].toUpperCase()}${breed.slice(1)}`
+                breedsList.push(option);
+            }
+        }
+
+        breedsList.sort((breedOne, breedTwo) => breedOne.innerText > breedTwo.innerText);
+        const sel = document.querySelector("#breeds-list");
+
+        for (index in breedsList) {
+            sel.appendChild(breedsList[index]);
+        }
     });
 }
 
