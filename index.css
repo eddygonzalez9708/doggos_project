@@ -2,6 +2,17 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
+body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
 section {
     display: flex;
 }
@@ -19,13 +30,38 @@ section .add-doggo {
     width: 100px;
 }
 
+section.content {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+}
+
 .doggos {
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .doggos img {
     width: 200px;
     height: 200px;
     margin: 20px 20px 0 20px;
+}
+
+.loader {
+    animation: spin 2s linear infinite;
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    display: none;
+    width: 80px;
+    height: 80px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
