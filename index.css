@@ -39,6 +39,7 @@ section.content {
 }
 
 .doggos {
+    align-content: flex-start;
     height: 100%;
     display: flex;
     flex-wrap: wrap;
