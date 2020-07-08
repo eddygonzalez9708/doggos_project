@@ -2,7 +2,7 @@
 const ALL_BREEDS_URL =  "https://dog.ceo/api/breeds/list/all"
 const BREEDS_URL = "https://dog.ceo/api/breed"
 
-const doggos = document.querySelector(".doggos");
+const dogs = document.querySelector(".dogs");
 const loader = document.querySelector(".loader");
 
 function addNewDoggo(e) {
@@ -26,23 +26,37 @@ function addNewDoggo(e) {
     promise
     .then(function(response) {
         const processingPromise = response.json();
-        doggos.style.display = "none";
+        
+        dogs.style.display = "none";
         loader.style.display = "initial";
+        
         return processingPromise;
     })
     .then(function(processedResponse) {
+        const div = document.createElement("div");
         const img = document.createElement("img");
+        const btn = document.createElement("button");
+        const i = document.createElement("i");
+
+        div.className = "dog-img";
         img.src = processedResponse.message;
         img.alt = option.innerText;
-        doggos.appendChild(img);
+        btn.className = "del-btn"
+        i.className = "fa fa-close";
+        
+        btn.appendChild(i);
+        div.appendChild(img);
+        div.appendChild(btn);
+        dogs.appendChild(div);
+        
         setTimeout(() => {
-            doggos.style.display = "flex";
+            dogs.style.display = "flex";
             loader.style.display = "none";
         }, 1000);
     });
 }
 
-document.querySelector(".add-doggo").addEventListener("click", addNewDoggo);
+document.querySelector(".add-dog").addEventListener("click", addNewDoggo);
 
 function fetchBreeds() {
     const promise = fetch(ALL_BREEDS_URL);
@@ -53,9 +67,8 @@ function fetchBreeds() {
         return processingPromise;
     })
     .then(function(processedResponse) {
-        const select = document.querySelector(".breeds-list");
         const breedsList = [];
-
+        
         for (breed in processedResponse.message) {
             if (processedResponse.message[breed].length > 0) {
                 for (index in processedResponse.message[breed]) {

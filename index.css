@@ -17,20 +17,20 @@ section {
     display: flex;
 }
 
-section * {
+.add-dog-form * {
     height: 25px;
 }
 
-section #breeds-list {
+#breeds-list {
     width: 300px;
 }
 
-section .add-doggo {
+.add-dog-form .add-dog {
     margin: 0 0 0 2px;
     width: 100px;
 }
 
-section.content {
+.dog-img-container {
     align-items: center;
     display: flex;
     height: 100%;
@@ -38,7 +38,7 @@ section.content {
     width: 100%;
 }
 
-.doggos {
+.dogs {
     align-content: flex-start;
     height: 100%;
     display: flex;
@@ -46,10 +46,30 @@ section.content {
     width: 100%;
 }
 
-.doggos img {
+.dogs .dog-img {
     width: 200px;
     height: 200px;
     margin: 20px 20px 0 20px;
+}
+
+.dogs .dog-img img {
+    height: 100%;
+    width: 100%;
+}
+
+.del-btn {
+    background: crimson;
+    border: none;
+    border-radius: 44px;
+    bottom: 105%;
+    cursor: pointer;
+    height: 25px;
+    left: 90%;
+    position: relative;
+}
+
+.dogs .dog-img:hover {
+    cursor: pointer;
 }
 
 .loader {
