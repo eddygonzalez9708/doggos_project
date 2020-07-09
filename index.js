@@ -42,7 +42,17 @@ function addNewDoggo(e) {
         img.src = processedResponse.message;
         img.alt = option.innerText;
         btn.className = "del-btn"
+        btn.style.visibility = "hidden";
         i.className = "fa fa-close";
+
+        img.onmouseover = (e) => e.target.nextSibling.style.visibility = "visible";
+        div.onmouseleave = (e) => e.target.children[1].style.visibility = "hidden";
+        /* btn.onclick = (e) => {
+            const par = e.target.parentElement;
+            const sel = document.querySelector("#breeds-list");
+            console.log(e);
+            console.log(par, sel);
+        } */
         
         btn.appendChild(i);
         div.appendChild(img);

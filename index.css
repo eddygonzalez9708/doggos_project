@@ -58,7 +58,7 @@ section {
 }
 
 .del-btn {
-    background: crimson;
+    background: #990000;
     border: none;
     border-radius: 44px;
     bottom: 105%;
@@ -66,6 +66,10 @@ section {
     height: 25px;
     left: 90%;
     position: relative;
+}
+
+.del-btn:hover {
+    background: #DA3535;
 }
 
 .dogs .dog-img:hover {
