@@ -47,12 +47,16 @@ function addNewDoggo(e) {
 
         img.onmouseover = (e) => e.target.nextSibling.style.visibility = "visible";
         div.onmouseleave = (e) => e.target.children[1].style.visibility = "hidden";
-        /* btn.onclick = (e) => {
-            const par = e.target.parentElement;
-            const sel = document.querySelector("#breeds-list");
-            console.log(e);
-            console.log(par, sel);
-        } */
+        
+        btn.onclick = (e) => {
+            const dogsList = document.querySelector(".dogs");
+
+            if (e.target.className === "fa fa-close") {
+                dogsList.removeChild(e.target.parentElement.parentElement);
+            } else if (e.target.className === "del-btn") {
+                dogsList.removeChild(e.target.parentElement);
+            }
+        }
         
         btn.appendChild(i);
         div.appendChild(img);
